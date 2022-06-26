@@ -1,0 +1,63 @@
+<div class="close-button">
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="wrapper-edit">
+  <h1 mat-dialog-title>
+    {{ "Editing" | translate }}
+  </h1>
+  <div mat-dialog-content>
+    <div class="row" class="custom-edit-input">
+      <dt class="col">{{ "Is adult" | translate }}</dt>
+      <dd class="col">
+        <div class="row">
+            <mat-checkbox [formControl]="yes" [checked]="selected === 'YES'" (change)="selected = 'YES'">YES</mat-checkbox>
+            <mat-checkbox [formControl]="no" [checked]="selected === 'NO'" (change)="selected = 'NO'">NO</mat-checkbox>
+        </div>
+      </dd>
+    </div> 
+    <div class="row" class="custom-edit-input">
+      <dt class="col">{{ "Minutes" | translate }}</dt>
+      <dd class="col">
+        <div class="input-edit-minutes"><input [formControl]="minutes"/></div>
+      </dd>
+    </div>
+    <div class="row" class="custom-edit-input">
+      <dt class="col">{{ "Start year" | translate }}</dt>
+      <dd class="col">
+        <div>
+          <select [formControl]="startYear">
+            <option>2020</option>
+            <option>2019</option>
+          </select>
+        </div>
+      </dd>
+    </div>
+    <div class="row" class="custom-edit-input">
+      <dt class="col">{{ "End Year" | translate }}</dt>
+      <dd class="col">
+        <select [formControl]="endYear">
+          <option>2020</option>
+          <option>2019</option>
+        </select>
+      </dd>
+    </div>
+    <div class="row" class="custom-edit-input">
+      <dt class="col">{{ "Genres" | translate }}</dt>
+      <dd class="col">
+        <select [formControl]="genres">
+          <option>comedy</option>
+          <option>documentary</option>
+          <option>short</option>
+          <option>horror</option>
+        </select>
+      </dd>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button class="ok-btn" mat-button mat-dialog-close (click)="updateMovie()">{{ "OK" | translate }}</button>
+    <button class="cancel-btn" mat-button mat-dialog-close>{{ "Cancel" | translate }}</button>
+  </div>
+</div>
+

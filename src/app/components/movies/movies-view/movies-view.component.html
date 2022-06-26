@@ -1,0 +1,8 @@
+<div *ngIf="!isLoading" class="row custom-cards-view">
+  <div *ngFor="let movie of movies | paginate: { itemsPerPage: 18, currentPage: page }" class="col-sm">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+</div>
+<div class="custom-footer">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

@@ -1,1 +1,378 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-imdb-primary: mat.define-palette(mat.$indigo-palette);
+$app-imdb-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-imdb-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$app-imdb-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-imdb-primary,
+      accent: $app-imdb-accent,
+      warn: $app-imdb-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-imdb-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$colorTop: #494848;
+$colorBottom: #000000;
+
+.custom-header {
+  background: linear-gradient($colorTop, $colorBottom);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100% !important;
+  z-index: 1 !important;
+}
+
+.searchbar-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex: auto;
+}
+
+.flag-icon {
+  width: 2vw;
+}
+
+.logo {
+  width: 7vw;
+  min-width: 50px;
+}
+
+.search-bar input::placeholder {
+  font-style: italic !important;
+  font-weight: lighter !important;
+  font-size: 12px !important;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  padding: 0 !important;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: white;
+  border-color: #cfcfcf;
+  border-style: solid;
+  border-width: 0.2px;
+  height: 25px;
+  width: 30vw;
+}
+
+.search-bar input {
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  height: 30px;
+}
+
+.main-container {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .searchbar-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex: auto;
+    width: 100%;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    padding: 0 !important;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+  }
+
+  .search-bar input {
+    display: none;
+  }
+
+  .search-bar .mat-icon {
+    color: white;
+  }
+
+  .floating-btn {
+    display: none !important;
+  }
+
+  .custom-footer {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.card-wrapper {
+  margin: 10px;
+  display: flex;
+  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+  flex-direction: row;
+  justify-content: space-evenly;
+  box-shadow: 0 0px 11px #E8E5E5;
+  height: 210px;
+  max-width: 420px;
+}
+
+.movie-image {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background-color: #f3f3f3;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.custom-card {
+  float: left;
+  flex: 1;
+  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+  padding: 0px !important;
+  padding-left: 10px !important;
+  padding-top: 4px !important;
+  margin-bottom: 10px !important;
+  margin-top: 0 !important;
+}
+
+.custom-card .mat-card-title {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.custom-title {
+  flex: 1;
+  font-size: 18px;
+}
+
+.custom-card .mat-card-subtitle {
+  padding: 0 !important;
+  padding-top: 4px !important;
+  font-size: 12px;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.edit-icon {
+  transform: scale(0.6);
+}
+
+.th-title {
+  font-size: 10px;
+  background-color: #f3f3f3 !important;
+  text-align: center;
+  margin: 5px;
+}
+
+.td-data {
+  font-size: 11px;
+  font-weight: lighter;
+  text-align: center;
+  margin: 5px;
+}
+
+.custom-footer {
+  margin-top: auto;
+  height: 50px;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(12px, 3vw);
+}
+
+.ngx-pagination .current {
+  background-color: transparent !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+}
+
+.floating-btn {
+  position: fixed !important;
+  bottom: 10%;
+  left: 95%;
+  background-color: #f3f3f3 !important;
+  border-radius: 0px !important;
+}
+
+.floating-btn .mat-icon {
+  color: black !important;
+  font-weight: bolder;
+}
+
+.custom-cards-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 85%;
+}
+
+.search-mobile {
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 2;
+  background: linear-gradient($colorTop, $colorBottom);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 50px;
+}
+
+.search-mobile input::placeholder {
+  font-style: italic !important;
+  font-weight: lighter !important;
+  font-size: 12px !important;
+}
+
+.mobile-search-input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.close-btn {
+  color: white !important;
+}
+
+.wrapper-edit{
+  display: flex !important;
+  align-items: center !important;
+  align-content: center !important;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 0 !important;
+}
+
+.mat-dialog-container {
+  padding-top: 0 !important;
+  min-width: 25%;
+}
+
+.custom-edit-input {
+  display: flex; 
+  flex-direction: row; 
+}
+
+.select {
+  width: 100% !important;
+}
+
+dt {
+  display:table-cell;
+  vertical-align:middle;
+  width: 30%;
+  padding:5px;
+}
+
+dd {
+  display:table-cell;
+  vertical-align:middle;
+  width: 60%;
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+select {
+  width:100%
+}
+
+
+.input-edit-minutes input{
+  width:50%;
+}
+
+.mat-checkbox {
+  padding-right: 10px;
+}
+
+.close-button {
+  position: relative !important;  
+  top: 5px !important;
+  margin-left: 80% !important;
+  width: 20px !important;
+  height: 20px !important;
+  z-index: 2;
+}
+
+.close-button .mat-button-focus-overlay {
+  color: transparent !important;
+}
+
+.ok-btn {
+  background: linear-gradient($colorBottom, $colorTop);
+  color : white;
+  height: 30px;
+  width: 100px;
+}
+
+.cancel-btn {
+  background-color: #9B9B9B;
+  color : white;
+  height: 30px;
+  width: 100px;
+}

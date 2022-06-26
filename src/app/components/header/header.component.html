@@ -1,0 +1,15 @@
+<mat-toolbar class="custom-header">
+  <img class="logo" src="assets/svg/logo.svg" alt="logo imdb" />
+  <div class="searchbar-wrapper">
+    <app-searchbar></app-searchbar>
+  </div>
+  <div>
+    <span class="spacer"></span>
+    <button mat-icon-button class="flag-icon" (click)="setFrench()">
+      <mat-icon svgIcon="flag_fr"></mat-icon>
+    </button>
+    <button mat-icon-button class="flag-icon" (click)="setEnglish()">
+      <mat-icon svgIcon="flag_usa"></mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

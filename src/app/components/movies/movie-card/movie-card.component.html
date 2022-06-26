@@ -1,0 +1,42 @@
+<div class="card-wrapper">
+  <mat-card class="mat-elevation-z0 custom-card">
+    <mat-card-title>
+      <span class="custom-title">{{ movie.primaryTitle }}</span>
+      <button mat-icon-button (click)="openDialog()">
+        <mat-icon svgIcon="icon_pencil" class="edit-icon"></mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-subtitle>{{ "Original title" | translate }}: {{ movie.originalTitle }}</mat-card-subtitle>
+    <mat-card-content>
+      <div class="row" style="display: flex; flex-direction: row; flex-wrap: wrap">
+        <div class="col-sm">
+          <div class="row th-title">ID</div>
+          <div class="row td-data">{{ movie.tconst }}</div>
+        </div>
+        <div class="col-sm">
+          <div class="row th-title">{{ "Minutes" | translate }}</div>
+          <div class="row td-data">{{ movie.runtimeMinutes !== "" && movie.runtimeMinutes !== "\\N"? movie.runtimeMinutes: "_" }}</div>
+        </div>
+        <div class="col-sm">
+          <div class="row th-title">{{ "Start year" | translate }}</div>
+          <div class="row td-data">{{ movie.startYear !== "" && movie.startYear !== "\\N" ? movie.startYear: "_" }}</div>
+        </div>
+        <div class="col-sm">
+          <div class="row th-title">{{ "End Year" | translate }}</div>
+          <div class="row td-data">{{ movie.endYear !== "" && movie.endYear !== "\\N"? movie.endYear: "_" }}</div>
+        </div>
+        <div class="col-sm">
+          <div class="row th-title">{{"Is adult" | translate }}</div>
+          <div class="row td-data">{{ movie.isAdult !== "" && movie.isAdult !== "\\N"? movie.isAdult: "_" }}</div>
+        </div>
+        <div class="col-sm">
+          <div class="row th-title">{{"Genres" | translate }} </div>
+          <div class="row td-data">{{ movie.genres !== "" && movie.genres !== "\\N"? movie.genres: "_" }}</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="movie-image">
+    <img src="assets/svg/icon_poster.svg" alt="movie image" />
+  </div>
+</div>

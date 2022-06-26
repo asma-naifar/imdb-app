@@ -1,0 +1,12 @@
+<div *ngIf="isSearching" class="search-mobile">
+  <input placeholder="{{'Search a movie'| translate }} ..." class="mobile-search-input" (keyup.enter)="searchMovies(search.value)" type="text" #search>
+  <button  mat-icon-button (click)="close()">
+    <mat-icon class="close-btn">close</mat-icon>
+  </button>
+</div>
+<div class="search-bar">
+  <input placeholder="{{'Search a movie'| translate }} ..." #searchString/>
+  <button mat-icon-button (click)="searchMovies(searchString.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
